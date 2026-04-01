@@ -82,10 +82,10 @@
     background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.92));
   }
 
-  /* CTA sits at the very bottom of the image, below the logo text */
+  /* CTA sits at the very bottom of the image, well below the logo text */
   .hero-cta {
     position: absolute;
-    bottom: 2.5rem;
+    bottom: 1.5rem;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -233,6 +233,12 @@
 
   .bio-cards-wrap { display: flex; flex-direction: column; }
 
+  /* Force bio text to NOT be all-caps — Cinzel renders small-caps, override it */
+  .bio-card { padding: 2rem; border: 1px solid var(--border); font-family: 'Cormorant Garamond', serif; font-variant: normal; text-transform: none; }
+  .bio-name { font-family: 'Cinzel', serif; font-size: clamp(1.1rem, 1.9vw, 1.3rem); font-weight: 700; color: var(--gold); letter-spacing: 0.05em; margin-bottom: 0.4rem; font-variant: normal; text-transform: none; }
+  .bio-title-text { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: clamp(1rem, 1.7vw, 1.2rem); color: var(--text-muted); margin-bottom: 1rem; line-height: 1.5; font-variant: normal; text-transform: none; display: block; }
+  .bio-body { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.05rem, 1.85vw, 1.28rem); color: var(--text-body); line-height: 1.8; font-variant: normal; text-transform: none; }
+
   /* ── CONTACT ── */
   .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
   @media (max-width: 600px) { .contact-grid { grid-template-columns: 1fr; } }
@@ -283,12 +289,11 @@
   </div>
 </nav>
 
-<!-- HERO — image displays at natural proportions, CTA floats at bottom -->
+<!-- HERO — image displays at natural proportions, CTA buttons float at bottom -->
 <div class="hero">
   <img class="hero-img" src="2026_Marriage_Seminar.png" alt="REFLECT REFRESH — A Marriage Journey">
   <div class="hero-bottom-fade"></div>
   <div class="hero-cta">
-    <div class="hero-tagline">A retreat experience for couples who are ready to go deeper.</div>
     <div class="hero-btn-group">
       <a class="btn" href="#contact">Book a Retreat</a>
       <a class="btn btn-ghost" href="#about">Learn More</a>
@@ -351,13 +356,13 @@
       <div class="bio-cards-wrap">
         <div class="bio-card">
           <div class="bio-name">Brian Crawford</div>
-          <div class="bio-title">Lead Pastor, City Light Church<br>President, Mission Mississippi</div>
-          <p class="bio-text">Brian brings over two decades of pastoral ministry and organizational leadership to every retreat. As Lead Pastor of City Light Church — a multiethnic congregation in Vicksburg, Mississippi — and President of Mission Mississippi, a statewide Christian nonprofit focused on racial reconciliation, Brian has spent his life helping people navigate hard conversations with honesty and grace. He is a fellow traveler, not a lecturer.</p>
+          <span class="bio-title-text">Lead Pastor, City Light Church<br>President, Mission Mississippi</span>
+          <p class="bio-body">Brian brings over two decades of pastoral ministry and organizational leadership to every retreat. As Lead Pastor of City Light Church — a multiethnic congregation in Vicksburg, Mississippi — and President of Mission Mississippi, a statewide Christian nonprofit focused on racial reconciliation, Brian has spent his life helping people navigate hard conversations with honesty and grace. He is a fellow traveler, not a lecturer.</p>
         </div>
         <div class="bio-card" style="margin-top: 1.5rem;">
           <div class="bio-name">Candi Crawford</div>
-          <div class="bio-title">LPC, NCC — Licensed Professional Counselor<br>PhD Candidate</div>
-          <p class="bio-text">Candi is a Licensed Professional Counselor and National Certified Counselor with a clinical background that gives REFLECT/REFRESH its therapeutic depth. Her expertise in the dynamics of communication, emotional safety, and relational repair shapes every session. Candi creates environments where couples feel seen, heard, and safe enough to do the real work.</p>
+          <span class="bio-title-text">LPC, NCC — Licensed Professional Counselor<br>PhD Candidate</span>
+          <p class="bio-body">Candi is a Licensed Professional Counselor and National Certified Counselor with a clinical background that gives REFLECT/REFRESH its therapeutic depth. Her expertise in the dynamics of communication, emotional safety, and relational repair shapes every session. Candi creates environments where couples feel seen, heard, and safe enough to do the real work.</p>
         </div>
       </div>
     </div>
