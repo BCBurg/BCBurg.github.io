@@ -126,8 +126,8 @@
     .hero-img { height: 100vh; object-position: center 25%; }
   }
 
-  /* Laptop / medium desktop */
-  @media (max-width: 1199px) and (min-width: 769px) {
+  /* Laptop / medium desktop — only applies when not a phone */
+  @media (max-width: 1199px) and (min-width: 901px) {
     .hero-img { height: 100vh; object-position: center 30%; }
   }
 
@@ -157,8 +157,8 @@
     .scroll-hint { display: none; }
   }
 
-  /* Phone portrait — show full image at natural ratio, CTA below */
-  @media (max-width: 768px) and (orientation: portrait) {
+  /* Phone portrait — broad breakpoint to catch all phone sizes */
+  @media (max-width: 900px) and (orientation: portrait) {
     .hero { display: flex; flex-direction: column; }
     .hero-img {
       width: 100%;
