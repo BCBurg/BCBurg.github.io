@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>REFLECT | REFRESH — A Marriage Journey</title>
+<meta name="description" content="REFLECT/REFRESH: A Marriage Journey is a Christian marriage enrichment retreat curriculum designed to help couples communicate more honestly and connect more deeply.">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black: #0d0d0d;
+    --gold: #f0bc2e;
+    --gold-dim: #7a6018;
+    --gold-faint: rgba(240,188,46,0.15);
+    --white: #ffffff;
+    --text-body: rgba(255,255,255,0.82);
+    --text-muted: rgba(255,255,255,0.5);
+    --border: rgba(255,255,255,0.1);
+    --section-pad: clamp(3rem, 6vw, 5rem);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'Cinzel', serif;
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 500px;
+    overflow: hidden;
+  }
+
+  .hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    display: block;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(0,0,0,0.15) 0%,
+      rgba(0,0,0,0.05) 40%,
+      rgba(0,0,0,0.7) 100%
+    );
+  }
+
+  .hero-cta {
+    position: absolute;
+    bottom: 3.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  .hero-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+    color: rgba(255,255,255,0.75);
+    letter-spacing: 0.1em;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  .hero-btn-group {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .btn {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(0.8rem, 1.4vw, 0.95rem);
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    padding: 1rem 2rem;
+    border: 2px solid var(--gold);
+    background: transparent;
+    color: var(--white);
+    cursor: pointer;
+    transition: all 0.25s ease;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-block;
+    white-space: nowrap;
+  }
+  .btn:hover { background: var(--gold); color: var(--black); }
+  .btn-ghost {
+    border-color: rgba(255,255,255,0.4);
+    color: rgba(255,255,255,0.85);
+  }
+  .btn-ghost:hover { background: rgba(255,255,255,0.1); border-color: var(--white); color: var(--white); }
+
+  .scroll-hint {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 0.1em;
+    animation: pulse 3s ease-in-out infinite;
+  }
+
+  @keyframes pulse { 0%,100% { opacity: 0.3; } 50% { opacity: 0.6; } }
+
+  /* ── SECTIONS ── */
+  section {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: var(--section-pad) 2rem;
+  }
+
+  .section-full {
+    max-width: 100%;
+    padding: var(--section-pad) 0;
+    border-top: 1px solid var(--gold-faint);
+  }
+
+  .section-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .section-label {
+    font-size: clamp(0.7rem, 1.2vw, 0.85rem);
+    letter-spacing: 0.35em;
+    color: var(--gold-dim);
+    text-transform: uppercase;
+    margin-bottom: 1.25rem;
+  }
+
+  .section-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.3;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.05em;
+  }
+
+  .section-title span { color: var(--gold); }
+
+  .section-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    color: var(--text-body);
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
+  }
+
+  .gold-rule {
+    width: 60px; height: 2px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+    margin-bottom: 1.5rem;
+  }
+
+  /* ── WHAT IS IT — two col ── */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  @media (max-width: 680px) {
+    .two-col { grid-template-columns: 1fr; gap: 2rem; }
+    .hero-tagline { white-space: normal; text-align: center; }
+  }
+
+  /* ── PILLARS ── */
+  .pillars {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  @media (max-width: 600px) {
+    .pillars { grid-template-columns: 1fr; }
+  }
+
+  .pillar {
+    padding: 1.75rem;
+    border: 1px solid var(--border);
+    transition: border-color 0.2s;
+  }
+
+  .pillar:hover { border-color: var(--gold-faint); }
+
+  .pillar-number {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 0.6rem;
+  }
+
+  .pillar-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(0.9rem, 1.5vw, 1.05rem);
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 0.6rem;
+    letter-spacing: 0.06em;
+  }
+
+  .pillar-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1rem, 1.7vw, 1.2rem);
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+
+  /* ── BIO ── */
+  .bio-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+
+  @media (max-width: 680px) {
+    .bio-block { grid-template-columns: 1fr; }
+  }
+
+  .bio-card {
+    padding: 2rem;
+    border: 1px solid var(--border);
+  }
+
+  .bio-name {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1rem, 1.8vw, 1.2rem);
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+    margin-bottom: 0.35rem;
+  }
+
+  .bio-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(0.9rem, 1.5vw, 1.05rem);
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+    line-height: 1.5;
+  }
+
+  .bio-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1rem, 1.7vw, 1.2rem);
+    color: var(--text-body);
+    line-height: 1.75;
+  }
+
+  /* ── CONTACT FORM ── */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  @media (max-width: 600px) {
+    .contact-grid { grid-template-columns: 1fr; }
+  }
+
+  .field-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .field-group.full { grid-column: 1 / -1; }
+
+  .field-label {
+    font-size: clamp(0.7rem, 1.2vw, 0.82rem);
+    letter-spacing: 0.2em;
+    color: var(--gold-dim);
+    text-transform: uppercase;
+  }
+
+  .field-input,
+  .field-textarea,
+  .field-select {
+    width: 100%;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    color: var(--white);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.05rem, 1.8vw, 1.2rem);
+    padding: 0.9rem 1.1rem;
+    outline: none;
+    transition: border-color 0.2s;
+    appearance: none;
+  }
+
+  .field-input:focus,
+  .field-textarea:focus,
+  .field-select:focus { border-color: var(--gold); }
+
+  .field-input::placeholder,
+  .field-textarea::placeholder { color: rgba(255,255,255,0.2); }
+
+  .field-textarea { resize: vertical; min-height: 130px; line-height: 1.6; }
+
+  .field-select { cursor: pointer; }
+  .field-select option { background: #1a1a1a; color: var(--white); }
+
+  /* ── FOOTER ── */
+  .site-footer {
+    border-top: 1px solid var(--gold-faint);
+    padding: 2.5rem 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .footer-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(0.9rem, 1.5vw, 1.05rem);
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+
+  .footer-verse {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(0.85rem, 1.4vw, 1rem);
+    color: rgba(255,255,255,0.25);
+  }
+
+  .footer-verse strong {
+    font-style: normal;
+    color: var(--gold-dim);
+    letter-spacing: 0.08em;
+  }
+
+  /* ── NAV ── */
+  .site-nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 2rem;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.7), transparent);
+    transition: background 0.3s;
+  }
+
+  .site-nav.scrolled {
+    background: rgba(10,10,10,0.95);
+    border-bottom: 1px solid var(--gold-faint);
+  }
+
+  .nav-logo {
+    height: 36px;
+    width: auto;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .nav-link {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(0.6rem, 1.1vw, 0.75rem);
+    letter-spacing: 0.2em;
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-link:hover { color: var(--gold); }
+
+  /* ── SUBMIT ── */
+  .form-submit-area {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .submit-note {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+    color: var(--text-muted);
+  }
+
+  /* ── THANK YOU ── */
+  #contact-thanks {
+    display: none;
+    padding: 2.5rem;
+    border: 1px solid var(--gold-faint);
+    text-align: center;
+  }
+
+  .thanks-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1.2rem, 2.2vw, 1.6rem);
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+    letter-spacing: 0.1em;
+  }
+
+  .thanks-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="site-nav" id="site-nav">
+  <img class="nav-logo" src="REFLECT_REFRESH_Brand_White.png" alt="Reflect Refresh">
+  <div class="nav-links">
+    <a class="nav-link" href="#about">About</a>
+    <a class="nav-link" href="#who-we-are">Brian & Candi</a>
+    <a class="nav-link" href="#contact">Book Us</a>
+    <a class="nav-link" href="Post-Journey/checkin.html" style="color:var(--gold);">Post-Journey ↗</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <img class="hero-img" src="2026_Marriage_Seminar.png" alt="REFLECT REFRESH — A Marriage Journey">
+  <div class="hero-overlay"></div>
+  <div class="hero-cta">
+    <div class="hero-tagline">A retreat experience for couples who are ready to go deeper.</div>
+    <div class="hero-btn-group">
+      <a class="btn" href="#contact">Book a Retreat</a>
+      <a class="btn btn-ghost" href="#about">Learn More</a>
+    </div>
+    <div class="scroll-hint">scroll to explore</div>
+  </div>
+</div>
+
+<!-- WHAT IS IT -->
+<section id="about">
+  <div class="section-label">What Is REFLECT / REFRESH</div>
+  <div class="gold-rule"></div>
+  <div class="two-col">
+    <div>
+      <div class="section-title">A Marriage Journey Built on <span>Truth and Grace</span></div>
+    </div>
+    <div>
+      <p class="section-text">REFLECT/REFRESH is a Christian marriage enrichment curriculum designed for couples who want more than a weekend away. It is a guided journey into the conversations most couples avoid — and the connection most couples crave.</p>
+      <p class="section-text">Rooted in Scripture and informed by licensed clinical practice, the retreat moves couples through four sessions across two days, addressing the way we communicate, the stories we tell ourselves, and the cross-shaped love that holds a marriage together.</p>
+      <p class="section-text" style="font-style:italic; color: var(--text-muted);">"Therefore what God has joined together, let man not separate." — Mark 10:9</p>
+    </div>
+  </div>
+
+  <div class="pillars">
+    <div class="pillar">
+      <div class="pillar-number">Session 1</div>
+      <div class="pillar-title">Communication — Life and Death</div>
+      <div class="pillar-text">Words carry weight. This session opens an honest conversation about the power of language inside a marriage and what it means to give life with your words.</div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-number">Session 2</div>
+      <div class="pillar-title">Communication — A Marriage Story</div>
+      <div class="pillar-text">The stories we tell about our marriages shape them. Couples examine the narratives they carry and learn to tell new, truer ones.</div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-number">Session 3</div>
+      <div class="pillar-title">Connection — Flesh of My Flesh</div>
+      <div class="pillar-text">What does it mean to be truly known? This session invites couples into the kind of vulnerable, covenant connection God designed marriage to hold.</div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-number">Session 4</div>
+      <div class="pillar-title">Connection — Take Up Your Cross</div>
+      <div class="pillar-text">The path to a thriving marriage runs through sacrifice. Couples explore what it looks like to lay down self — and find each other on the other side.</div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO WE ARE -->
+<div class="section-full" id="who-we-are">
+  <div class="section-inner">
+    <div class="section-label">Your Facilitators</div>
+    <div class="gold-rule"></div>
+    <div class="section-title" style="margin-bottom: 2rem;">Brian <span>&</span> Candi Crawford</div>
+    <div class="bio-block">
+      <div class="bio-card">
+        <div class="bio-name">Brian Crawford</div>
+        <div class="bio-title">Lead Pastor, City Light Church<br>President, Mission Mississippi</div>
+        <p class="bio-text">Brian brings over two decades of pastoral ministry and organizational leadership to every retreat. As Lead Pastor of City Light Church — a multiethnic congregation in Vicksburg, Mississippi — and President of Mission Mississippi, a statewide Christian nonprofit focused on racial reconciliation, Brian has spent his life helping people navigate hard conversations with honesty and grace. He is a fellow traveler, not a lecturer.</p>
+      </div>
+      <div class="bio-card">
+        <div class="bio-name">Candi Crawford</div>
+        <div class="bio-title">LPC, NCC — Licensed Professional Counselor<br>PhD Candidate</div>
+        <p class="bio-text">Candi is a Licensed Professional Counselor and National Certified Counselor with a clinical background that gives REFLECT/REFRESH its therapeutic depth. Her expertise in the dynamics of communication, emotional safety, and relational repair shapes every session. Candi creates environments where couples feel seen, heard, and safe enough to do the real work.</p>
+      </div>
+    </div>
+    <div style="margin-top: 2rem;">
+      <p class="section-text" style="font-style: italic; color: var(--text-muted); text-align: center;">Together, Brian and Candi bring pastoral authority, statewide ministry credibility, and licensed clinical expertise to every retreat — a combination that is rare, trusted, and distinctly equipped to walk alongside married couples.</p>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label">Book a Retreat</div>
+  <div class="gold-rule"></div>
+  <div class="two-col" style="margin-bottom: 2.5rem;">
+    <div>
+      <div class="section-title">Bring REFLECT/REFRESH to <span>Your Church</span></div>
+    </div>
+    <div>
+      <p class="section-text">Whether you are hosting an intimate couples retreat or a full church-wide marriage enrichment weekend, we would love to talk. Fill out the form and we will be in touch within a few days.</p>
+      <p class="section-text" style="color: var(--text-muted); font-style: italic;">REFLECT/REFRESH is available as a facilitated weekend retreat, a small group curriculum, or a customized church partnership. Pricing and availability provided upon inquiry.</p>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       IMPORTANT: Replace YOUR_FORM_ID below with
+       your Formspree form ID for contact inquiries.
+       Sign up free at formspree.io.
+  ════════════════════════════════════════════ -->
+  <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+    <div class="contact-grid">
+      <div class="field-group">
+        <label class="field-label" for="name">Your Name</label>
+        <input class="field-input" id="name" name="name" type="text" placeholder="First and Last" required>
+      </div>
+      <div class="field-group">
+        <label class="field-label" for="email">Email Address</label>
+        <input class="field-input" id="email" name="email" type="email" placeholder="you@church.org" required>
+      </div>
+      <div class="field-group">
+        <label class="field-label" for="church">Church or Organization</label>
+        <input class="field-input" id="church" name="church" type="text" placeholder="Church name">
+      </div>
+      <div class="field-group">
+        <label class="field-label" for="role">Your Role</label>
+        <input class="field-input" id="role" name="role" type="text" placeholder="Pastor, Ministry Leader, etc.">
+      </div>
+      <div class="field-group">
+        <label class="field-label" for="couples">Estimated Number of Couples</label>
+        <select class="field-select" id="couples" name="couples">
+          <option value="" disabled selected>Select a range</option>
+          <option>1–10 couples</option>
+          <option>11–20 couples</option>
+          <option>21–40 couples</option>
+          <option>40+ couples</option>
+          <option>Not sure yet</option>
+        </select>
+      </div>
+      <div class="field-group">
+        <label class="field-label" for="timing">Preferred Timing</label>
+        <input class="field-input" id="timing" name="timing" type="text" placeholder="e.g. Spring 2026, flexible">
+      </div>
+      <div class="field-group full">
+        <label class="field-label" for="message">Anything else you'd like us to know?</label>
+        <textarea class="field-textarea" id="message" name="message" placeholder="Tell us about your church, your couples, or what you're hoping for…"></textarea>
+      </div>
+    </div>
+    <input type="hidden" name="_subject" value="New REFLECT/REFRESH Booking Inquiry">
+    <div class="form-submit-area">
+      <div class="submit-note">We typically respond within 2–3 business days.</div>
+      <button type="button" class="btn" onclick="handleContact()">Send Inquiry</button>
+    </div>
+  </form>
+
+  <div id="contact-thanks">
+    <div class="thanks-title">Thank You</div>
+    <div class="thanks-text">Your inquiry has been received. Brian and Candi will be in touch within a few days. We look forward to the conversation.</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <img src="REFLECT_REFRESH_Brand_White.png" alt="Reflect Refresh" style="height:40px; width:auto; opacity:0.6;">
+  <div class="footer-text">
+    For His Glory — Brian and Candi Crawford, Fellow Travelers<br>
+    City Light Church · Vicksburg, Mississippi · Mission Mississippi
+  </div>
+  <div class="footer-verse">
+    "Therefore what God has joined together, let man not separate."
+    <strong> Mark 10:9</strong>
+  </div>
+</footer>
+
+<script>
+  // Navbar scroll effect
+  const nav = document.getElementById('site-nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 80);
+  });
+
+  // Contact form submission
+  function handleContact() {
+    const form = document.getElementById('contact-form');
+    const name = form.querySelector('#name').value.trim();
+    const email = form.querySelector('#email').value.trim();
+    if (!name || !email) {
+      alert('Please enter your name and email address.');
+      return;
+    }
+    const data = new FormData(form);
+    fetch(form.action, {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    }).then(response => {
+      if (response.ok) {
+        form.style.display = 'none';
+        document.getElementById('contact-thanks').style.display = 'block';
+      } else {
+        alert('Something went wrong. Please email us directly at brianc@citylightvicksburg.org');
+      }
+    }).catch(() => {
+      alert('Unable to submit. Please check your connection and try again.');
+    });
+  }
+</script>
+</body>
+</html>
