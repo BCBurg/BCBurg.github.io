@@ -38,26 +38,34 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1.25rem 2rem;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.7), transparent);
+    padding: 1.25rem 2.5rem;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.75), transparent);
     transition: background 0.3s;
   }
   .site-nav.scrolled {
-    background: rgba(10,10,10,0.95);
+    background: rgba(10,10,10,0.97);
     border-bottom: 1px solid var(--gold-faint);
   }
-  .nav-logo { height: 36px; width: auto; }
-  .nav-links { display: flex; gap: 2rem; align-items: center; }
+  .nav-logo { height: 46px; width: auto; }
+  .nav-links { display: flex; gap: 2.5rem; align-items: center; }
   .nav-link {
     font-family: 'Cinzel', serif;
-    font-size: clamp(0.6rem, 1.1vw, 0.75rem);
-    letter-spacing: 0.2em;
-    color: rgba(255,255,255,0.7);
+    font-size: clamp(0.78rem, 1.3vw, 0.98rem);
+    letter-spacing: 0.18em;
+    color: rgba(255,255,255,0.82);
     text-decoration: none;
     text-transform: uppercase;
     transition: color 0.2s;
   }
   .nav-link:hover { color: var(--gold); }
+
+  /* Mobile nav */
+  @media (max-width: 680px) {
+    .site-nav { padding: 1rem 1.25rem; }
+    .nav-logo { height: 38px; }
+    .nav-links { gap: 1.25rem; }
+    .nav-link { font-size: 0.7rem; letter-spacing: 0.12em; }
+  }
 
   /* ── HERO ── */
   .hero {
