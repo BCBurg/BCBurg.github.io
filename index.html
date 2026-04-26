@@ -276,6 +276,62 @@
   .pillar-title { font-family: 'Cinzel', serif; font-size: clamp(0.9rem, 1.5vw, 1.05rem); font-weight: 700; color: var(--white); margin-bottom: 0.6rem; letter-spacing: 0.06em; }
   .pillar-text { font-family: 'Cormorant Garamond', serif; font-size: clamp(1rem, 1.7vw, 1.2rem); color: var(--text-muted); line-height: 1.7; }
 
+  /* ── TESTIMONIALS ── */
+  .testimonials-wrap {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: var(--section-pad) 2rem;
+  }
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  @media (max-width: 640px) {
+    .testimonials-grid { grid-template-columns: 1fr; }
+  }
+  .testimonial-card {
+    border: 1px solid var(--border);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    transition: border-color 0.2s;
+  }
+  .testimonial-card:hover { border-color: var(--gold-faint); }
+  .testimonial-card.featured {
+    grid-column: 1 / -1;
+    border-color: var(--gold-faint);
+    background: rgba(240,188,46,0.03);
+  }
+  .testimonial-quote-mark {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.5rem;
+    line-height: 0.6;
+    color: var(--gold);
+    opacity: 0.4;
+    flex-shrink: 0;
+  }
+  .testimonial-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(1.05rem, 1.9vw, 1.28rem);
+    color: var(--text-body);
+    line-height: 1.75;
+    flex: 1;
+  }
+  .testimonial-card.featured .testimonial-text {
+    font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+  }
+  .testimonial-attribution {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(0.62rem, 1vw, 0.75rem);
+    letter-spacing: 0.25em;
+    color: var(--gold-dim);
+    text-transform: uppercase;
+  }
+
   /* ── BIO PHOTO LAYOUT ── */
   .bio-photo-layout {
     display: grid;
@@ -362,7 +418,7 @@
 
 <!-- NAV -->
 <nav class="site-nav" id="site-nav">
-  <img class="nav-logo" src="REFLECT_REFRESH_Brand_White.png" alt="Reflect Refresh">
+  <a href="https://reflectrefresh.org"><img class="nav-logo" src="REFLECT_REFRESH_Brand_White.png" alt="Reflect Refresh"></a>
   <div class="nav-links">
     <a class="nav-link" href="#about">About</a>
     <a class="nav-link nav-link-hide-mobile" href="#who-we-are">Brian & Candi</a>
@@ -422,6 +478,55 @@
     </div>
   </div>
 </section>
+
+<!-- TESTIMONIALS -->
+<div class="section-full" id="testimonials" style="border-top: 1px solid var(--gold-faint);">
+  <div class="testimonials-wrap">
+    <div class="section-label">What Couples Are Saying</div>
+    <div class="gold-rule"></div>
+    <div class="section-title">Stories from the <span>Journey</span></div>
+
+    <div class="testimonials-grid">
+
+      <div class="testimonial-card featured">
+        <div class="testimonial-quote-mark">"</div>
+        <div class="testimonial-text">I'm sure we speak for everyone here. This marriage retreat is a matter of life and death for our marriages. I hope this can continue so that others can have this blessing too.</div>
+        <div class="testimonial-attribution">Retreat Couple</div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-quote-mark">"</div>
+        <div class="testimonial-text">The marriage retreat was excellent. I encourage it for any married couple. It was a wonderful learning experience based on biblical principles.</div>
+        <div class="testimonial-attribution">Retreat Couple</div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-quote-mark">"</div>
+        <div class="testimonial-text">This really was an eye opener. We have to connect more, because we are there in the home but we are so distant. Praying we can use the tools we were encouraged to use.</div>
+        <div class="testimonial-attribution">Retreat Couple</div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-quote-mark">"</div>
+        <div class="testimonial-text">This marriage retreat was a big eye opener. It helps us to be sensitive to each other. In reality, this retreat was a mirror to face oneself. Blessings to you both.</div>
+        <div class="testimonial-attribution">Retreat Couple</div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-quote-mark">"</div>
+        <div class="testimonial-text">This has been an eye opener for us both. Sometimes we tend to take for granted what we have. We miss the tender moments by being so wrapped up in other things. We thank each of you and pray that God continues to show favor on you all.</div>
+        <div class="testimonial-attribution">Retreat Couple</div>
+      </div>
+
+      <div class="testimonial-card featured">
+        <div class="testimonial-quote-mark">"</div>
+        <div class="testimonial-text">You guys have had a tremendous impact on us. We enjoyed every moment of the retreat. We will continue to strive to be better versions of ourselves and to serve one another. Thanks so much.</div>
+        <div class="testimonial-attribution">Retreat Couple</div>
+      </div>
+
+    </div>
+  </div>
+</div>
 
 <!-- WHO WE ARE -->
 <div class="section-full" id="who-we-are">
